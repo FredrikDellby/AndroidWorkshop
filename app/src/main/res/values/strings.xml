@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WorkshopApp</string>
+    <string name="near_by_stop">Near by stops</string>
+    <string name="meters_away">%1$d meters away</string>
+</resources>
