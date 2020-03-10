@@ -15,11 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <ProgressBar
-        android:id="@id/progressBar"
+        android:id="@+id/progressBar"
         android:layout_width="50dp"
         android:layout_height="50dp"/>
     <androidx.recyclerView.widget.RecycleView
-        android:id="@id/activity_main_recycleView"
+        android:id="@+id/mainActivity_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
