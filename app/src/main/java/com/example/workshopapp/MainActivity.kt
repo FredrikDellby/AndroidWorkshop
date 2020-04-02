@@ -9,24 +9,30 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var userLocation: Location
     private lateinit var viewModel: RouteViewModel
+    private var progressBar: ProgressBar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProviders(this).get(RouteViewModel::class.java)
+
+        // Initialize the widget
+        progressBar = findViewById(R.id.progressBar)
+
+        // Set the viewmodel
+        viewModel = ViewModelProviders.of(this).get(RouteViewModel::class.java)
         checkLocationPermission()
     }
 
@@ -93,8 +99,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun showData(items: List<StopLocation>) {
         // Hide the progress bar
-        progressBar = findViewById(R.id.progressBar)
         progressBar?.visibility = View.GONE
+
+        val recyclerView = findViewById<RecyclerView>(R.id.mainActivity_recyclerView)
 
         recyclerView?.apply {
             visibility = View.VISIBLE
