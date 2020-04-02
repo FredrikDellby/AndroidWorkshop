@@ -18,7 +18,7 @@
         android:id="@+id/progressBar"
         android:layout_width="50dp"
         android:layout_height="50dp"/>
-    <androidx.recyclerView.widget.RecycleView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainActivity_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
